@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Валентинка для тебя 💖</title>
+    <link rel="stylesheet" href="files/style.css">
+    <style>
+        /* Адаптивные стили для мобильных устройств */
+        @media (max-width: 600px) {
+            .valentine-container {
+                padding: 10px;
+                font-size: 16px;
+            }
+            h1 {
+                font-size: 1.2em;
+                text-align: center;
+            }
+            .message {
+                font-size: 1em;
+                text-align: center;
+            }
+            .girl-photo {
+                max-width: 90vw;
+                height: auto;
+            }
+            .heart {
+                width: 80px;
+                height: 80px;
+            }
+            #surpriseBlock, #hugBlock {
+                width: 100%;
+                gap: 10px;
+            }
+            body > div > div {
+                flex-direction: column !important;
+                gap: 20px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="valentine-container">
+        <div class="heart" id="mainHeart"></div>
+        <h1>Ты самая прекрасная девушка на свете тоооииии глазааа!</h1>
+        <p class="message">Ты делаешь мир ярче и счастливее 💌</p>
+        <div style="display: flex; flex-direction: row; align-items: flex-start; justify-content: center; gap: 40px;">
+            <div id="surpriseBlock" style="display: flex; flex-direction: column; align-items: center;">
+                <button id="surpriseBtn" class="hug-btn">Сюрприз 🎁</button>
+                <div id="surprise" class="hidden" style="margin-top: 16px;">
+                    <p>Ты самая прекрасная! 💕</p>
+                    <img src="files/my_girl.jpg" alt="Моя любимая" class="girl-photo animated-fade" id="girlPhoto"/>
+                </div>
+            </div>
+            <div id="hugBlock" style="display: flex; flex-direction: column; align-items: center;">
+                <button id="hugBtn" class="hug-btn">Обнять 🤗</button>
+                <div id="hugMessage" class="hug-message hidden" style="margin-top: 16px;">Обнимаю тебя крепко-крепко! 💞</div>
+                <img src="files/This is for you.jpg" alt="Это для тебя" class="girl-photo animated-fade hidden" id="hugPhoto" style="margin-top: 16px;"/>
+            </div>
+        </div>
+    </div>
+    <script src="files/script.js"></script>
+    <script src="files/hearts.js"></script>
+</body>
+</html>

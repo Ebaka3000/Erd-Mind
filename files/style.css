@@ -1,0 +1,204 @@
+body {
+    background: linear-gradient(120deg, #ffb6c1 0%, #ffe4e1 100%);
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Segoe UI', cursive, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.valentine-container {
+    background: rgba(255,255,255,0.9);
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(255, 105, 180, 0.2);
+    padding: 40px 32px;
+    text-align: center;
+    max-width: 700px; /* увеличено для двух блоков и фото */
+    width: 90vw;
+    min-width: 370px;
+}
+
+.heart {
+    width: 80px;
+    height: 72px;
+    background: red;
+    position: relative;
+    margin: 0 auto 24px auto;
+    transform: rotate(-45deg);
+    animation: heartbeat 1s infinite;
+    transition: box-shadow 0.3s, background 0.3s;
+    box-shadow: 0 0 24px 4px #ffb6c1;
+}
+.heart:before,
+.heart:after {
+    content: "";
+    position: absolute;
+    width: 80px;
+    height: 72px;
+    background: inherit;
+    border-radius: 50%;
+    transition: background 0.3s;
+}
+.heart:before {
+    top: -40px;
+    left: 0;
+}
+.heart:after {
+    left: 40px;
+    top: 0;
+}
+.heart:hover,
+.heart:hover:before,
+.heart:hover:after {
+    background: #ff69b4;
+}
+.heart:hover {
+    animation: heartbeat-fast 0.5s infinite;
+    box-shadow: 0 0 40px 10px #ff69b4;
+}
+@keyframes heartbeat-fast {
+    0%, 100% { transform: scale(1) rotate(-45deg); }
+    20% { transform: scale(1.2) rotate(-45deg); }
+    40% { transform: scale(0.9) rotate(-45deg); }
+    60% { transform: scale(1.1) rotate(-45deg); }
+    80% { transform: scale(0.95) rotate(-45deg); }
+}
+
+h1, .message, #surprise p, #hugMessage {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeSlideIn 1s forwards;
+}
+h1 { animation-delay: 0.2s; }
+.message { animation-delay: 0.5s; }
+#surprise p { animation-delay: 0.7s; }
+#hugMessage { animation-delay: 0.9s; }
+
+@keyframes fadeSlideIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.girl-photo {
+    display: block;
+    margin: 20px auto;
+    border-radius: 20px;
+    width: 520px;
+    max-width: 100%;
+    min-width: 320px;
+    box-shadow: 0 4px 16px 4px #ffb6c1, 0 0 24px 8px #fff0f5;
+    transition: transform 0.6s cubic-bezier(.68,-0.55,.27,1.55), box-shadow 0.3s;
+    animation: scaleIn 1.2s cubic-bezier(.68,-0.55,.27,1.55) forwards;
+    animation-delay: 0.8s;
+}
+.girl-photo:hover {
+    transform: rotate(-3deg) scale(1.05);
+    box-shadow: 0 8px 32px 8px #ff69b4, 0 0 32px 12px #fff0f5;
+}
+@keyframes scaleIn {
+    0% { opacity: 0; transform: scale(0.7); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+button, .hug-btn {
+    transition: transform 0.2s, background 0.2s;
+}
+button:hover, .hug-btn:hover {
+    transform: scale(1.08) translateY(-2px);
+    background: #e75480;
+}
+
+#surprise {
+    margin-top: 16px;
+    transition: opacity 0.5s;
+}
+.hidden {
+    display: none !important;!important;
+}
+img {
+    width: 120px;
+    margin-top: 8px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(255, 105, 180, 0.2);
+}
+
+.girl-photo {
+    display: block;
+    margin: 20px auto;
+    border-radius: 20px;
+    width: 520px;
+    max-width: 100%;
+    min-width: 320px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+
+.animated-fade {
+    opacity: 0;
+    animation: fadeIn 1.2s forwards;
+    animation-delay: 0.3s;
+}
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+.hug-btn {
+    background: #ffb6c1;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 28px;
+    font-size: 1em;
+    margin: 18px auto 0 auto;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(255, 105, 180, 0.15);
+    transition: background 0.2s;
+    display: block;
+}
+.hug-btn:hover {
+    background: #e75480;
+}
+.hug-message {
+    color: #e75480;
+    font-size: 1.1em;
+    margin-top: 12px;
+    transition: opacity 0.5s;
+}
+
+.falling-heart {
+    position: fixed;
+    top: -40px;
+    z-index: 9999;
+    pointer-events: none;
+    animation: fallHeart linear forwards;
+    user-select: none;
+    will-change: transform, opacity;
+}
+@keyframes fallHeart {
+    to {
+        transform: translateY(110vh) rotate(30deg);
+        opacity: 0.2;
+    }
+}
+
+.glow-frame {
+    box-shadow: 0 0 24px 8px #ff69b4, 0 0 32px 12px #fff0f5, 0 0 16px 4px #fff;
+    animation: glow 1.5s infinite alternate;
+}
+@keyframes glow {
+    from { box-shadow: 0 0 24px 8px #ff69b4, 0 0 32px 12px #fff0f5, 0 0 16px 4px #fff; }
+    to { box-shadow: 0 0 40px 16px #ff69b4, 0 0 48px 24px #fff0f5, 0 0 32px 8px #fff; }
+}
+
+@media (max-width: 900px) {
+  .valentine-container {
+    max-width: 98vw;
+    padding: 10px 2vw;
+  }
+  .girl-photo {
+    width: 98vw;
+    min-width: unset;
+  }
+}
