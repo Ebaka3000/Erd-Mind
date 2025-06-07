@@ -26,8 +26,52 @@
                 height: auto;
             }
             .heart {
-                width: 80px;
-                height: 80px;
+                position: relative;
+                width: 100px;
+                height: 90px;
+                margin: 50px auto;
+                transform: rotate(-45deg);
+                animation: heart-beat 1.2s infinite;
+            }
+            @keyframes heart-beat {
+                0%, 100% {
+                    transform: rotate(-45deg) scale(1);
+                }
+                10% {
+                    transform: rotate(-45deg) scale(1.08);
+                }
+                20% {
+                    transform: rotate(-45deg) scale(0.95);
+                }
+                30% {
+                    transform: rotate(-45deg) scale(1.1);
+                }
+                50% {
+                    transform: rotate(-45deg) scale(0.97);
+                }
+                70% {
+                    transform: rotate(-45deg) scale(1.05);
+                }
+                80% {
+                    transform: rotate(-45deg) scale(0.98);
+                }
+            }
+            .heart::before,
+            .heart::after {
+                content: "";
+                position: absolute;
+                width: 100px;
+                height: 90px;
+                background: red;
+                border-radius: 50%;
+            }
+            .heart::before {
+                top: -50px;
+                left: 0;
+            }
+            .heart::after {
+                left: 50px;
+                top: 0;
             }
             #surpriseBlock, #hugBlock {
                 width: 100%;
